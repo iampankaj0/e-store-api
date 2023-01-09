@@ -6,6 +6,7 @@ import { Order } from "../models/Order.js";
 export const myProfile = (req, res, next) => {
   res.status(200).json({
     message: "Logged In",
+    success: true,
     user: req.user,
   });
 };

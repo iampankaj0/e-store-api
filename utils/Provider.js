@@ -20,7 +20,6 @@ export const connectPassport = () => {
             photo: profile.photos[0].value,
             googleId: profile.id,
           });
-
           done(null, newUser);
         } else {
           return done(null, user);

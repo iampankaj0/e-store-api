@@ -23,7 +23,9 @@ router.get(
     successRedirect: process.env.FRONTEND_URL,
   }),
   (req, res, next) => {
-    res.send({ message: "Logged In" });
+    if (req.user.googleId) {
+      res.redirect(process.env.FRONTEND_URL);
+    }
   }
 );
 
