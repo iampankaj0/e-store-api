@@ -24,7 +24,7 @@ router.get(
   }),
   (req, res, next) => {
     if (req.user.googleId) {
-      res.redirect(process.env.FRONTEND_URL);
+      res.redirect(process.env.FRONTEND_URL+"/me");
     }
   }
 );

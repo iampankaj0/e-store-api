@@ -12,7 +12,7 @@ import { authorizedAdmin, isAuthenticated } from "../middlewares/auth.js";
 
 const router = express.Router();
 
-router.post("/createorder", placeOrder); // CREATE NEW ORDER
+router.post("/createorder",isAuthenticated, placeOrder); // CREATE NEW ORDER
 router.post("/createorderonline", isAuthenticated, placeOrderOnline); // CREATE NEW ORDER ONLINE PAY
 router.post("/paymentverification", isAuthenticated, paymentVerification); // PAYMENT VERIFICATION
 router.get("/myorders", isAuthenticated, getMyOrders); // MY ORDERS - USER
