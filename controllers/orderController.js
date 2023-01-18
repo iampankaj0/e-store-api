@@ -49,7 +49,7 @@ export const placeOrderOnline = asyncError(async (req, res, next) => {
     totalAmount,
   } = req.body;
 
-  const user = "req.user._id";
+  const user = req.user._id;
 
   const orderOptions = {
     shippingInfo,
@@ -130,6 +130,20 @@ export const getMyOrders = asyncError(async (req, res, next) => {
   res.status(200).json({
     success: true,
     orders,
+  });
+});
+
+// DELETE ORDER CREATED BY ME (SELF USER)
+export const deleteOrder = asyncError(async (req, res, next) => {
+  const order = await Order.findByIdAndDelete(req.params.id);
+
+  if (!order) {
+    return next(new errorHandler("Order Not Found", 404));
+  }
+
+  res.status(200).json({
+    success: true,
+    message: "Order deleted Successfully",
   });
 });
 

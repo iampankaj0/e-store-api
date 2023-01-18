@@ -13,7 +13,6 @@ export const connectPassport = () => {
       async function (accessToken, refreshToken, profile, done) {
         // DATABASE WORK START
         const user = await User.findOne({ googleId: profile.id });
-
         if (!user) {
           const newUser = await User.create({
             name: profile.displayName,
