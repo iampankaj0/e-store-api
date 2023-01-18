@@ -45,9 +45,9 @@ app.enable("trust proxy");
 
 app.use(
   cors({
-    credentials: true,
-    origin: process.env.FRONTEND_URL,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    // credentials: true,
+    // origin: process.env.FRONTEND_URL,
+    // methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
